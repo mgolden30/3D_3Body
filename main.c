@@ -3,7 +3,7 @@
 #include <math.h>   //sqrt
 
 
-#include <lapacke.h> //linear algebra for Newton-Raphson
+//#include <lapacke.h> //linear algebra for Newton-Raphson
 #include <gsl/gsl_cblas.h> //cblas_ routines
 
 #include "clsqr2/lsqr.h" //lsqr for linear algebra
