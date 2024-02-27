@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-lm -lgsl -lgslcblas -llapacke -O3
+CFLAGS=-lm -lgsl -lgslcblas -O3
 
 
 main: main.c clsqr2/lsqr.o
@@ -9,7 +9,15 @@ main: main.c clsqr2/lsqr.o
 clsqr2/lsqr.o: clsqr2/lsqr.c
 	cd clsqr2; $(CC)  -pedantic -Wall -c -I. lsqr.c; cd ..
 
+#Automate downloading the LSQR files
+clsqr2/lsqr.c:
+	wget https://web.stanford.edu/group/SOL/software/lsqr/c/clsqr2.zip; \
+	unzip clsqr2.zip; \
+	rm clsqr2.zip;
+
+
 clean:
-	rm main clsqr2/lsqr.o
+	rm main; \
+	rm clsqr2 -r
 
 
